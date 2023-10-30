@@ -3,6 +3,7 @@ package org.cuatrovientos.diccionariolenguajesignos.app;
 import android.app.Application;
 
 
+import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
 import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
 
 import java.util.concurrent.atomic.AtomicInteger;
@@ -14,7 +15,7 @@ import io.realm.RealmResults;
 
 public class MyAplication extends Application {
     public static AtomicInteger palabraID = new AtomicInteger();
-
+    public static AtomicInteger categoriaID = new AtomicInteger();
     @Override
     public void onCreate() {
         super.onCreate();
@@ -22,6 +23,7 @@ public class MyAplication extends Application {
         setUpRealmConfig();
         Realm realm = Realm.getDefaultInstance();
         palabraID = getIdByTable(realm, Palabra.class);
+        categoriaID=getIdByTable(realm , Categoria.class);
         realm.close();
     }
     private void setUpRealmConfig(){
