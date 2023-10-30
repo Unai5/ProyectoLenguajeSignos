@@ -11,9 +11,9 @@ public class Palabra extends RealmObject{
     private int id;
     private String palabra;
     private Integer imagen;
-    private String categoria;
+    private Categoria categoria;
 
-    public Palabra(String palabra , Integer imagen , String categoria){
+    public Palabra(String palabra , Integer imagen , Categoria categoria){
         this.id= MyAplication.palabraID.incrementAndGet();
         this.palabra=palabra;
         this.imagen=imagen;
@@ -28,11 +28,11 @@ public class Palabra extends RealmObject{
         return imagen;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 }
