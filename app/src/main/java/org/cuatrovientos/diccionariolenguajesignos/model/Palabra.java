@@ -5,12 +5,15 @@ import org.cuatrovientos.diccionariolenguajesignos.app.MyAplication;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
 public class Palabra extends RealmObject{
     @PrimaryKey
     private int id;
     private String palabra;
+    @Required
     private Integer imagen;
+    @Required
     private Categoria categoria;
 
     public Palabra(String palabra , Integer imagen , Categoria categoria){
