@@ -13,7 +13,7 @@ import org.cuatrovientos.diccionariolenguajesignos.R;
 
 import java.util.ArrayList;
 
-public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
+public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
 
     ArrayList<Categoria> listaCategorias;
 
