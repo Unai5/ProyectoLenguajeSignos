@@ -7,27 +7,12 @@
     tools:context=".SecondActivity">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="62dp"
-        android:layout_height="44dp"
-        app:icon="@android:drawable/ic_search_category_default"
-        tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="39dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="308dp"
-        android:layout_height="48dp"
-        android:hint="buscador"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="39dp" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="407dp"
-        android:layout_height="605dp"
+        android:id="@+id/recyclePalabra"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
