@@ -7,13 +7,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgPalabra"
         android:layout_width="match_parent"
         android:layout_height="317dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtPalabra"
         android:layout_width="match_parent"
         android:layout_height="68dp"
         android:text="TextView" />

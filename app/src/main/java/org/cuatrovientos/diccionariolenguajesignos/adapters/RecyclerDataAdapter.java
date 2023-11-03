@@ -7,15 +7,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.cuatrovientos.diccionariolenguajesignos.R;
 import org.cuatrovientos.diccionariolenguajesignos.R;
 
 import java.util.ArrayList;
 
-public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
+public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
 
     ArrayList<Categoria> listaCategorias;
 

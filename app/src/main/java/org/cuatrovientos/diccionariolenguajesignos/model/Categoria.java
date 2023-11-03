@@ -14,7 +14,7 @@ public class Categoria extends RealmObject {
     @Required
     private int foto;
 
-    private Categoria(String nombre , int foto){
+    public Categoria(String nombre, int foto){
         this.id= MyAplication.categoriaID.incrementAndGet();
         this.nombre=nombre;
         this.foto=foto;
