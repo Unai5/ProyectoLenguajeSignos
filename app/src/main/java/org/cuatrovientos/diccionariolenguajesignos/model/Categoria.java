@@ -2,9 +2,6 @@ package org.cuatrovientos.diccionariolenguajesignos.model;
 
 import org.cuatrovientos.diccionariolenguajesignos.app.MyAplication;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-import io.realm.annotations.Required;
 
 public class Categoria extends RealmObject {
     @PrimaryKey

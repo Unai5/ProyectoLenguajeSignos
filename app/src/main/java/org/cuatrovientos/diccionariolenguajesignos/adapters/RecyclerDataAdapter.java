@@ -10,8 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.cuatrovientos.diccionariolenguajesignos.R;
-import org.cuatrovientos.diccionariolenguajesignos.R;
+
+import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
+import org.cuatrovientos.proyectolenguajesignos.R;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapte
     ArrayList<Categoria> listaCategorias;
 
     public RecyclerDataAdapter(ArrayList<Categoria> listaCategorias) {
-        this.listaNombresCategorias = listaNombresCategorias;
+        this.listaCategorias = listaCategorias;
     }
 
     @NonNull
