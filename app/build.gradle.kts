@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.cuatrovientos.diccionariolenguajesignos"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "org.cuatrovientos.diccionariolenguajesignos"

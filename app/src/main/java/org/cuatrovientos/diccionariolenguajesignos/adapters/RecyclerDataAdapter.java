@@ -3,97 +3,69 @@ package org.cuatrovientos.diccionariolenguajesignos.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.cuatrovientos.diccionariolenguajesignos.R;
 import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
-
-import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
-import org.cuatrovientos.proyectolenguajesignos.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.RealmResults;
 
-public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
-
-    ArrayList<Categoria> listaCategorias;
-
     public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
-        private List<Categoria> list;
+        private List<Categoria> listaCategorias;
         private OnItemClickListener listener;
-    public RecyclerDataAdapter(ArrayList<Categoria> listaCategorias) {
-        this.listaCategorias = listaCategorias;
-    }
 
         public RecyclerDataAdapter(RealmResults<Categoria> list, OnItemClickListener listener){
-            this.list = list;
+            this.listaCategorias = list;
             this.listener = listener;
         }
+
         @NonNull
         @Override
         public RecyclerDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_items,parent,false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_categorias_list,null,false);
             return new RecyclerDataHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
-            holder.assignData(list.get(position),listener);
+            holder.assignData(listaCategorias.get(position),listener);
         }
 
         @Override
         public int getItemCount() {
-            return list.size();
+            return listaCategorias.size();
         }
 
-        public void filter(String string) {
-            list.clear();
-            if(string.isEmpty()){
-                list.addAll(listCopia);
-            } else{
-                string = string.toLowerCase();
-                for(Categoria item: listCopia){
-                    if(item.getTitulo().toLowerCase().contains(string)){
-                        list.add(item);
-                    }
-                }
-            }
-        }
 
         public class RecyclerDataHolder extends RecyclerView.ViewHolder {
-            TextView  tw;
-            ImageView img;
+            TextView  tv;
             public RecyclerDataHolder(@NonNull View itemView) {
                 super(itemView);
-                img = itemView.findViewById(R.id.imgPortada);
-                tw = itemView.findViewById(R.id.txtTitle);
+                tv = itemView.findViewById(R.id.tvCategoria);
             }
 
-            public void assignData(Imagenes objeto, OnItemClickListener listener) {
+            public void assignData(Categoria categoria, OnItemClickListener listener) {
 
-                tw.setText(objeto.getTitulo());
-                tw.setBackgroundResource(objeto.getColorTexto());
-                img.setImageResource(objeto.getImagen());
-                img.setBackgroundResource(objeto.getColorImagen());
+                tv.setText(categoria.getNombre());
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(objeto, getAdapterPosition());
+                        listener.onItemClick(categoria, getAdapterPosition());
                     }
                 });
             }
         }
 
         public interface OnItemClickListener{
-            void onItemClick(Imagenes objeto,int position);
+            void onItemClick(Categoria categoria,int position);
         }
     }
+
 
