@@ -7,7 +7,7 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
 
-public class Palabra {
+public class Palabra extends RealmObject{
     @PrimaryKey
     private int id;
     private String palabra;
