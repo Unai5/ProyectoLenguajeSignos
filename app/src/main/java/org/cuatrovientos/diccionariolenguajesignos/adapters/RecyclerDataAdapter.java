@@ -27,6 +27,7 @@ import io.realm.RealmResults;
             this.listener = listener;
         }
 
+
         @NonNull
         @Override
         public RecyclerDataHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
