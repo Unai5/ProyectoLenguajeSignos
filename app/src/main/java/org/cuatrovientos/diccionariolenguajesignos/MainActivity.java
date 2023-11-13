@@ -1,4 +1,4 @@
-package org.cuatrovientos.recyclerimagenes;
+package org.cuatrovientos.diccionariolenguajesignos;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -57,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
         realm.commitTransaction();
 
-        recycler = findViewById(R.id.recycler);
+        recycler = findViewById(R.id.recyclePalabra);
         recyclerDataAdapter = new RecyclerDataAdapter(new RecyclerDataAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(ElementoLista elementoLista, int position) {
+            public void onItemClick(Categoria categoria, int position) {
                 Toast.makeText(MainActivity.this, "Poistion: "+position, Toast.LENGTH_SHORT).show();
             }
 
