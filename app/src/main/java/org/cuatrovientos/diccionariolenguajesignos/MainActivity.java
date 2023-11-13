@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -67,7 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(Categoria categoria, int position) {
-                Toast.makeText(MainActivity.this, "Poistion: "+position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                int id = categoria.getId();
+                intent.putExtra("id", id);
+                startActivity(intent);
             }
 
 
