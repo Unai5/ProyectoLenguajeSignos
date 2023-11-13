@@ -9,9 +9,9 @@ import io.realm.annotations.Required;
 public class Categoria extends RealmObject {
     @PrimaryKey
     private int id;
-    @Required
+
     private String nombre;
-    @Required
+
     private int foto;
 
     public Categoria(){
