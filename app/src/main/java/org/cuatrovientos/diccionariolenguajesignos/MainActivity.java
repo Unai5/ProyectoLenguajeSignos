@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Realm realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
+
 
         Categoria saludosPreguntas = new Categoria("Saludos y Preguntas");
         Categoria ropa = new Categoria("Ropa");
@@ -45,23 +45,30 @@ public class MainActivity extends AppCompatActivity {
         Categoria calendario = new Categoria("Calendario");
         Categoria adjetivosAdverbiosVerbos = new Categoria("Adjetivos, Adverbios y Verbos");
 
-        realm.copyToRealm(saludosPreguntas);
-        realm.copyToRealm(ropa);
-        realm.copyToRealm(naturaleza);
-        realm.copyToRealm(familia);
-        realm.copyToRealm(cuerpo);
-        realm.copyToRealm(comidasBebidas);
-        realm.copyToRealm(colegio);
-        realm.copyToRealm(ciudad);
-        realm.copyToRealm(casa);
-        realm.copyToRealm(calendario);
-        realm.copyToRealm(adjetivosAdverbiosVerbos);
+        RealmResults<Categoria> listaCategorias = realm.where(Categoria.class).findAll();
 
-        realm.commitTransaction();
+        if (listaCategorias.size()==0){
+
+            realm.beginTransaction();
+
+            realm.copyToRealm(saludosPreguntas);
+            realm.copyToRealm(ropa);
+            realm.copyToRealm(naturaleza);
+            realm.copyToRealm(familia);
+            realm.copyToRealm(cuerpo);
+            realm.copyToRealm(comidasBebidas);
+            realm.copyToRealm(colegio);
+            realm.copyToRealm(ciudad);
+            realm.copyToRealm(casa);
+            realm.copyToRealm(calendario);
+            realm.copyToRealm(adjetivosAdverbiosVerbos);
+
+            realm.commitTransaction();
+
+        }
 
         recycler = findViewById(R.id.recyclerCategorias);
 
-        RealmResults<Categoria> listaCategorias = realm.where(Categoria.class).findAll();
 
         recyclerDataAdapter = new RecyclerDataAdapter(listaCategorias, new RecyclerDataAdapter.OnItemClickListener() {
 
