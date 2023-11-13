@@ -1,7 +1,6 @@
 package org.cuatrovientos.diccionariolenguajesignos.adapters;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.cuatrovientos.diccionariolenguajesignos.R;
 import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerPalabraAdapter.RecyclerDataHolder>{
-    private List<Palabra> listData;
-    private ArrayList<Integer> img;
+    private List<Palabra> listPalabras;
+
     private OnItemClickListener itemListener;
     private Context context;
 
-    public RecyclerPalabraAdapter(Context context, List<Palabra> listDataPers, OnItemClickListener listener){
+    public RecyclerPalabraAdapter(Context context, List<Palabra> listDataPalabra, OnItemClickListener listener){
         this.context=context;
-        this.listData = listDataPers;
-        this.img=img;
+        this.listPalabras = listDataPalabra;
         this.itemListener=listener;
 
     }
@@ -40,14 +37,12 @@ public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerPalabra
     @Override
     public void onBindViewHolder(@NonNull RecyclerDataHolder holder, int position) {
 
-
-        Drawable background = holder.image.getBackground();
-        holder.asignData(listData.get(position),itemListener );
+        holder.asignData(listPalabras.get(position),itemListener );
     }
 
     @Override
     public int getItemCount() {
-        return listData.size();
+        return listPalabras.size();
     }
 
     public class RecyclerDataHolder extends RecyclerView.ViewHolder {
