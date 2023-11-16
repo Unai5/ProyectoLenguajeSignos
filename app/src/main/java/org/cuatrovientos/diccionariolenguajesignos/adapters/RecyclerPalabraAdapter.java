@@ -66,6 +66,6 @@ public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerPalabra
 
     }
     public interface  OnItemClickListener{
-        void onItemClick(String name, int position , int imageResource  );
+        void onItemClick(String name, int id , int imageResource  );
     }
 }
