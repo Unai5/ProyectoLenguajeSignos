@@ -14,6 +14,9 @@
         android:theme="@style/Theme.DiccionarioLenguajeSignos"
         tools:targetApi="31">
         <activity
+            android:name=".GestoActivity"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivity"
             android:exported="false" />
         <activity

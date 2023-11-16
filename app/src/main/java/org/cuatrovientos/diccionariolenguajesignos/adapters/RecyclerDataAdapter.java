@@ -3,8 +3,6 @@ package org.cuatrovientos.diccionariolenguajesignos.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,16 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.cuatrovientos.diccionariolenguajesignos.R;
 import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import io.realm.RealmResults;
-
-    public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
+public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
         private List<Categoria> listaCategorias;
         private OnItemClickListener listener;
 
-        public RecyclerDataAdapter(RealmResults<Categoria> list, OnItemClickListener listener){
+        public RecyclerDataAdapter(OnItemClickListener listener){
             this.listaCategorias = list;
             this.listener = listener;
         }
