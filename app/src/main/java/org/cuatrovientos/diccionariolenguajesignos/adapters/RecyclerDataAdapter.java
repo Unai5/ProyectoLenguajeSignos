@@ -48,15 +48,21 @@ import io.realm.RealmResults;
 
         public class RecyclerDataHolder extends RecyclerView.ViewHolder {
             TextView  tv;
+            ImageView iv;
             public RecyclerDataHolder(@NonNull View itemView) {
                 super(itemView);
                 tv = itemView.findViewById(R.id.tvCategoria);
+                iv = itemView.findViewById(R.id.ivCategoria);
             }
 
             public void assignData(Categoria categoria, OnItemClickListener listener) {
 
+                int resourceId = itemView.getContext().getResources().getIdentifier(categoria.getFoto(), "drawable", itemView.getContext().getPackageName());
+
                 tv.setText(categoria.getNombre());
+                iv.setImageResource(resourceId);
                 itemView.setOnClickListener(new View.OnClickListener() {
+                    //
                     @Override
                     public void onClick(View view) {
                         listener.onItemClick(categoria, getAdapterPosition());

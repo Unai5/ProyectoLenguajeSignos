@@ -6,14 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import org.cuatrovientos.diccionariolenguajesignos.R;
 import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerDataAdapter;
 import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -33,17 +28,17 @@ public class MainActivity extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
 
 
-        Categoria saludosPreguntas = new Categoria("Saludos y Preguntas");
-        Categoria ropa = new Categoria("Ropa");
-        Categoria naturaleza = new Categoria("Naturaleza");
-        Categoria familia = new Categoria("Familia");
-        Categoria cuerpo = new Categoria("Cuerpo");
-        Categoria comidasBebidas = new Categoria("Comidas y Bebidas");
-        Categoria colegio = new Categoria("Colegio");
-        Categoria ciudad = new Categoria("Ciudad");
-        Categoria casa = new Categoria("Casa");
-        Categoria calendario = new Categoria("Calendario");
-        Categoria adjetivosAdverbiosVerbos = new Categoria("Adjetivos, Adverbios y Verbos");
+        Categoria saludosPreguntas = new Categoria("Saludos y Preguntas", "R.drawable.saludospreguntas");
+        Categoria ropa = new Categoria("Ropa", "R.drawable.ropa");
+        Categoria naturaleza = new Categoria("Naturaleza", "R.drawable.naturaleza");
+        Categoria familia = new Categoria("Familia", "R.drawable.familia");
+        Categoria cuerpo = new Categoria("Cuerpo", "R.drawable.cuerpo");
+        Categoria comidasBebidas = new Categoria("Comidas y Bebidas", "R.drawable.comidasbebidas");
+        Categoria colegio = new Categoria("Colegio", "R.drawable.colegiocategoria");
+        Categoria ciudad = new Categoria("Ciudad", "R.drawable.ciudadcategoria");
+        Categoria casa = new Categoria("Casa", "R.drawable.casacategoria");
+        Categoria calendario = new Categoria("Calendario", "R.drawable.calendariocategoria");
+        Categoria adjetivosAdverbiosVerbos = new Categoria("Adjetivos, Adverbios y Verbos", "R.drawable.adjetivosadverbiosverbos");
 
         RealmResults<Categoria> listaCategorias = realm.where(Categoria.class).findAll();
 
@@ -84,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
         recycler.setAdapter(recyclerDataAdapter);
-        recycler.setLayoutManager(new GridLayoutManager(this,2));
+        recycler.setLayoutManager(new GridLayoutManager(this,1));
 
 
     }
