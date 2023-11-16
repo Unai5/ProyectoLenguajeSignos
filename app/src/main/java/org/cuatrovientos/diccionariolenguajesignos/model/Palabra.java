@@ -11,11 +11,14 @@ public class Palabra extends RealmObject{
     @PrimaryKey
     private int id;
     private String palabra;
-    @Required
+
     private Integer imagen;
-    @Required
+
     private Categoria categoria;
 
+    public Palabra(){
+
+    }
     public Palabra(String palabra , Integer imagen , Categoria categoria){
         this.id= MyAplication.palabraID.incrementAndGet();
         this.palabra=palabra;
