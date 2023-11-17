@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
                     }
-                    realm.copyToRealm(new Palabra(nombrePalabra, resourceId, realm.where(Categoria.class).equalTo("nombreFoto", parts[0]).findFirst()));
+                    realm.copyToRealm(new Palabra(nombrePalabra, resourceId, realm.where(Categoria.class).equalTo("nombreFotos", parts[0]).findFirst()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
