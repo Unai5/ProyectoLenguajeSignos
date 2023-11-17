@@ -10,7 +10,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerPalabraAdapter;
+import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
 import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -24,25 +28,30 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         realm = Realm.getDefaultInstance();
 
+        Bundle bundle = getIntent().getExtras();
+        int id = bundle.getInt("id");
+        Categoria categoria = realm.where(Categoria.class).equalTo("id",id).findFirst();
 
 
-
-        results=realm.where(Palabra.class).findAll();
+        
+        results=realm.where(Palabra.class).equalTo("categoria.id",id).findAll();
 
 
         RecyclerView recyclerView;
         recyclerView=(RecyclerView) findViewById(R.id.recyclePalabra);
 
-        Context context = this;
+        
+        
+        
         RecyclerPalabraAdapter recyclerDataAdapter = new RecyclerPalabraAdapter(this,results, new RecyclerPalabraAdapter.OnItemClickListener() {
 
             @Override
-            public void onItemClick(String name, int position, int imageResource) {
-                Intent intent = new Intent(SecondActivity.this, SecondActivity.class);
+            public void onItemClick(String name, int id, int imageResource) {
+                Intent intent = new Intent(SecondActivity.this, GestoActivity.class);
 
 
 
-                intent.putExtra("pos", position);
+                intent.putExtra("id", id);
 
                 startActivity(intent);
             }
