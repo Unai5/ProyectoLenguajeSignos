@@ -12,12 +12,12 @@ public class Categoria extends RealmObject {
 
     private String nombre;
 
-    private int foto;
+    private String foto;
 
     public Categoria(){
 
     }
-    public Categoria(String nombre){
+    public Categoria(String nombre, String foto){
         this.id= MyAplication.categoriaID.incrementAndGet();
         this.nombre=nombre;
         this.foto=foto;
@@ -35,11 +35,11 @@ public class Categoria extends RealmObject {
         this.nombre = nombre;
     }
 
-    public int getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(int foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 }
