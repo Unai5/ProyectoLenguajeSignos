@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerPalabraAdapter;
+import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
 import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
 
 import java.lang.reflect.Field;
@@ -27,30 +28,26 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         realm = Realm.getDefaultInstance();
 
-        ArrayList<String> arrayRecursos = new ArrayList<String>();
-        Field[] drawables = R.drawable.class.getFields();
-        R.drawable drawableResources = new R.drawable();
-        for (Field f : drawables) {
-            try {
-                realm.copyToRealm(new Palabra(f.getName(),f.getInt(drawableResources)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        Bundle bundle = getIntent().getExtras();
+        int id = bundle.getInt("id");
+        Categoria categoria = realm.where(Categoria.class).equalTo("id",id).findFirst();
 
 
-
-        results=realm.where(Palabra.class).findAll();
+        
+        results=realm.where(Palabra.class).equalTo("categoria.id",id).findAll();
 
 
         RecyclerView recyclerView;
         recyclerView=(RecyclerView) findViewById(R.id.recyclePalabra);
 
+        
+        
+        
         RecyclerPalabraAdapter recyclerDataAdapter = new RecyclerPalabraAdapter(this,results, new RecyclerPalabraAdapter.OnItemClickListener() {
 
             @Override
             public void onItemClick(String name, int id, int imageResource) {
-                Intent intent = new Intent(SecondActivity.this, SecondActivity.class);
+                Intent intent = new Intent(SecondActivity.this, GestoActivity.class);
 
 
 
