@@ -23,8 +23,9 @@ import io.realm.RealmResults;
 public class SecondActivity extends AppCompatActivity {
     Realm realm;
     RealmResults<Palabra> results;
-    TextView tvNomCategoria;
+    RecyclerPalabraAdapter recyclerDataAdapter;
     RecyclerView recyclerView;
+    TextView tvNomCategoria;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,6 @@ public class SecondActivity extends AppCompatActivity {
 
         
         results=realm.where(Palabra.class).equalTo("categoria.id",id).findAll();
-
 
 
         recyclerView=(RecyclerView) findViewById(R.id.recyclePalabra);
