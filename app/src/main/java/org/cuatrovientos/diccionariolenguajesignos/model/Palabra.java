@@ -41,4 +41,8 @@ public class Palabra extends RealmObject{
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    public int getId() {
+        return id;
+    }
 }

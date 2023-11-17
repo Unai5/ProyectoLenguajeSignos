@@ -48,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         RealmResults<Categoria> listaCategorias = realm.where(Categoria.class).findAll();
 
-        realm.beginTransaction();
-        realm.deleteAll();
-        realm.commitTransaction();
 
         if (listaCategorias.size()==0){
 
