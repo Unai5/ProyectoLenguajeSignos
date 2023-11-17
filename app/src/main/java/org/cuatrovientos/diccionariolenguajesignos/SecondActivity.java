@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerPalabraAdapter;
 import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
@@ -22,6 +23,8 @@ import io.realm.RealmResults;
 public class SecondActivity extends AppCompatActivity {
     Realm realm;
     RealmResults<Palabra> results;
+    TextView tvNomCategoria;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +35,14 @@ public class SecondActivity extends AppCompatActivity {
         int id = bundle.getInt("id");
         Categoria categoria = realm.where(Categoria.class).equalTo("id",id).findFirst();
 
+        tvNomCategoria = findViewById(R.id.tvNomCategoria);
+        tvNomCategoria.setText(categoria.getNombre());
 
         
         results=realm.where(Palabra.class).equalTo("categoria.id",id).findAll();
 
 
-        RecyclerView recyclerView;
+
         recyclerView=(RecyclerView) findViewById(R.id.recyclePalabra);
 
         
