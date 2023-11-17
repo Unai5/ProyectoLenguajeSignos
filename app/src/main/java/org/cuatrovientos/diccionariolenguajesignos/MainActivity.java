@@ -72,18 +72,20 @@ public class MainActivity extends AppCompatActivity {
             for (Field f : drawables) {
                 try {
                     String[] parts = f.getName().split("_");
-                    int resourceId = this.getResources().getIdentifier(f.getName(), "drawable", this.getPackageName());
-                    String nombrePalabra = "";
-                    for (int i = 0; i < parts.length; i++) {
-                        if (i>0){
-                            if (i< parts.length-2){
-                                nombrePalabra = nombrePalabra + parts[i] +" ";
-                            }else{
-                                nombrePalabra = nombrePalabra + parts[i];
+                    if (parts.length > 1) {
+                        int resourceId = this.getResources().getIdentifier(f.getName(), "drawable", this.getPackageName());
+                        String nombrePalabra = "";
+                        for (int i = 0; i < parts.length; i++) {
+                            if (i>0){
+                                if (i< parts.length-2){
+                                    nombrePalabra = nombrePalabra + parts[i] +" ";
+                                }else{
+                                    nombrePalabra = nombrePalabra + parts[i];
+                                }
                             }
                         }
+                        realm.copyToRealm(new Palabra(nombrePalabra, resourceId, realm.where(Categoria.class).equalTo("nombreFotos", parts[0]).findFirst()));
                     }
-                    realm.copyToRealm(new Palabra(nombrePalabra, resourceId, realm.where(Categoria.class).equalTo("nombreFotos", parts[0]).findFirst()));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
