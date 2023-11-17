@@ -3,6 +3,7 @@ package org.cuatrovientos.diccionariolenguajesignos.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,14 @@ import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
 
 import java.util.List;
 
+import io.realm.RealmResults;
+
 public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapter.RecyclerDataHolder> {
         private List<Categoria> listaCategorias;
         private OnItemClickListener listener;
 
-        public RecyclerDataAdapter(OnItemClickListener listener){
-            this.listaCategorias = list;
+        public RecyclerDataAdapter(RealmResults<Categoria> listaCategorias, OnItemClickListener listener){
+            this.listaCategorias = listaCategorias;
             this.listener = listener;
         }
 
@@ -52,10 +55,8 @@ public class RecyclerDataAdapter extends RecyclerView.Adapter<RecyclerDataAdapte
 
             public void assignData(Categoria categoria, OnItemClickListener listener) {
 
-                int resourceId = itemView.getContext().getResources().getIdentifier(categoria.getFoto(), "drawable", itemView.getContext().getPackageName());
-
                 tv.setText(categoria.getNombre());
-                iv.setImageResource(resourceId);
+                iv.setImageResource(categoria.getFoto());
                 itemView.setOnClickListener(new View.OnClickListener() {
                     //
                     @Override

@@ -11,16 +11,18 @@ public class Categoria extends RealmObject {
     private int id;
 
     private String nombre;
+    private String nombreFotos;
 
-    private String foto;
+    private int foto;
 
     public Categoria(){
 
     }
-    public Categoria(String nombre, String foto){
+    public Categoria(String nombre, int foto, String nombreFotos){
         this.id= MyAplication.categoriaID.incrementAndGet();
         this.nombre=nombre;
         this.foto=foto;
+        this.nombreFotos=nombreFotos;
     }
 
     public int getId() {
@@ -35,11 +37,16 @@ public class Categoria extends RealmObject {
         this.nombre = nombre;
     }
 
-    public String getFoto() {
+    public int getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(int foto) {
         this.foto = foto;
     }
+
+    public String getNombreFotos() {
+        return nombreFotos;
+    }
+
 }

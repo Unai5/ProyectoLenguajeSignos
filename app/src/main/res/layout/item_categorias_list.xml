@@ -11,7 +11,8 @@
         android:layout_width="152dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:scaleType="fitXY"/>
 
     <TextView
         android:id="@+id/tvCategoria"
