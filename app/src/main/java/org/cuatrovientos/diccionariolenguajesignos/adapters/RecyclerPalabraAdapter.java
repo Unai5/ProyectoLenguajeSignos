@@ -59,13 +59,13 @@ public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerPalabra
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClickListener.onItemClick(palabra.getPalabra(), getAdapterPosition() , palabra.getImagen()  );
+                    onItemClickListener.onItemClick(palabra.getId());
                 }
             });
         }
 
     }
     public interface  OnItemClickListener{
-        void onItemClick(String name, int id , int imageResource  );
+        void onItemClick(int id  );
     }
 }

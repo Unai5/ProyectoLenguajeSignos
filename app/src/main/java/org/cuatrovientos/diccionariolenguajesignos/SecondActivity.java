@@ -22,6 +22,8 @@ import io.realm.RealmResults;
 public class SecondActivity extends AppCompatActivity {
     Realm realm;
     RealmResults<Palabra> results;
+    RecyclerPalabraAdapter recyclerDataAdapter;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +39,16 @@ public class SecondActivity extends AppCompatActivity {
         results=realm.where(Palabra.class).equalTo("categoria.id",id).findAll();
 
 
-        RecyclerView recyclerView;
+
         recyclerView=(RecyclerView) findViewById(R.id.recyclePalabra);
 
         
         
         
-        RecyclerPalabraAdapter recyclerDataAdapter = new RecyclerPalabraAdapter(this,results, new RecyclerPalabraAdapter.OnItemClickListener() {
+         recyclerDataAdapter = new RecyclerPalabraAdapter(this,results, new RecyclerPalabraAdapter.OnItemClickListener() {
 
             @Override
-            public void onItemClick(String name, int id, int imageResource) {
+            public void onItemClick(int id) {
                 Intent intent = new Intent(SecondActivity.this, GestoActivity.class);
 
 
