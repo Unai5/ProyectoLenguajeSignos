@@ -16,5 +16,7 @@
         android:id="@+id/txtPalabra"
         android:layout_width="match_parent"
         android:layout_height="68dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="30sp"
+        android:typeface="serif" />
 </LinearLayout>
