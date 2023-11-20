@@ -1,7 +1,6 @@
 package org.cuatrovientos.diccionariolenguajesignos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,7 +8,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerPalabraAdapter;
 import org.cuatrovientos.diccionariolenguajesignos.model.Categoria;
@@ -17,7 +15,6 @@ import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -27,27 +24,11 @@ public class SecondActivity extends AppCompatActivity {
     RealmResults<Palabra> results;
     RecyclerPalabraAdapter recyclerDataAdapter;
     RecyclerView recyclerView;
-
-    SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         realm = Realm.getDefaultInstance();
-        searchView = findViewById(R.id.searchView);
-        searchView.clearFocus();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterList(newText);
-                return true;
-            }
-        });
 
         Bundle bundle = getIntent().getExtras();
         int id = bundle.getInt("id");
@@ -83,20 +64,4 @@ public class SecondActivity extends AppCompatActivity {
 
 
     }
-
-    private void filterList(String text) {
-        List<Palabra> filteredList = new ArrayList<>();
-        for (Palabra item : results) {
-            if (item.getPalabra().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(item);
-            }
-        }
-
-        if (filteredList.isEmpty()){
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
-
-    }else{
-            recyclerDataAdapter.setFilteredList(filteredList);
-        }
-}
 }
