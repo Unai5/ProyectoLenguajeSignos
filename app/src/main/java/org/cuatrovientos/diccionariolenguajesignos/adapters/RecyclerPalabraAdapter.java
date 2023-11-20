@@ -21,6 +21,11 @@ public class RecyclerPalabraAdapter extends RecyclerView.Adapter<RecyclerPalabra
     private OnItemClickListener itemListener;
     private Context context;
 
+    public void setFilteredList(List<Palabra> filteredList){
+        this.listPalabras = filteredList;
+        notifyDataSetChanged();
+    }
+
     public RecyclerPalabraAdapter(Context context, List<Palabra> listDataPalabra, OnItemClickListener listener){
         this.context=context;
         this.listPalabras = listDataPalabra;

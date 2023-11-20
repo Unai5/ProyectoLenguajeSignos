@@ -11,15 +11,15 @@
         android:layout_width="117dp"
         android:layout_height="66dp"
         android:layout_marginStart="149dp"
-        android:layout_marginTop="44dp"
         android:layout_marginEnd="145dp"
+        android:layout_marginBottom="68dp"
         android:text="Aqui ira el texto"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVolver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPalabra" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imgPalabra"
@@ -28,6 +28,8 @@
         android:layout_marginStart="141dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="142dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPalabra"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

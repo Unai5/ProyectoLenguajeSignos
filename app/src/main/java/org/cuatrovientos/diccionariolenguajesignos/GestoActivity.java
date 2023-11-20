@@ -1,14 +1,9 @@
 package org.cuatrovientos.diccionariolenguajesignos;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.location.GnssAntennaInfo;
 import android.os.Bundle;
 
-import org.cuatrovientos.diccionariolenguajesignos.R;
-import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerDataAdapter;
-import org.cuatrovientos.diccionariolenguajesignos.adapters.RecyclerPalabraAdapter;
 import org.cuatrovientos.diccionariolenguajesignos.model.Palabra;
 
 import android.content.Intent;
@@ -18,7 +13,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Locale;
 
 import io.realm.Realm;
 
@@ -40,8 +34,6 @@ public class GestoActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         int id = bundle.getInt("id");
         Palabra palabra = realm.where(Palabra.class).equalTo("id",id).findFirst();
-
-
 
         imgView = findViewById(R.id.imgPalabra);
         txtNombreGesto = findViewById(R.id.textViewPalabra);
